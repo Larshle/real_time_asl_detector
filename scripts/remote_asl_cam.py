@@ -15,7 +15,7 @@ API_KEY  = __import__("os").getenv("ROBO_KEY")
 MODEL_ID = "american-sign-language-letters-gxpdm/4"
 
 if not API_KEY:
-    raise RuntimeError("YOOO no key my guy")
+    raise RuntimeError("YOOO no API key my guy")
 
 model     = get_model(model_id=MODEL_ID, api_key=API_KEY)
 cam       = Cam(index=0, width=640, height=640)
