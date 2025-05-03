@@ -15,7 +15,7 @@ API_KEY   = os.getenv("ROBO_KEY")
 MODEL_ID  = "american-sign-language-letters-gxpdm/4"  
 
 if not API_KEY:
-    raise RuntimeError("Missing ROBO_KEY in environment")
+    raise RuntimeError("AYOOO there is no key my person")
 
 # initialize model, camera, assembler, and annotators
 model      = get_model(model_id=MODEL_ID, api_key=API_KEY)
