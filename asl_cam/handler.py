@@ -1,9 +1,9 @@
 import os
 from .intent_parser import parse_intent
 
-def generate_and_save_command(code_text: str, output_dir: str = None) -> str:
+def generate_and_save_command(cmd_text: str, output_dir: str = None) -> str:
     """
-    Given a plain-text command, generate Python code via parse_intent,
+    Given a plain-text command (e.g. "circle"), generate Python code via parse_intent,
     save it as a .py file in output_dir (default: ./generated_commands),
     and return the file path.
     """
@@ -12,11 +12,11 @@ def generate_and_save_command(code_text: str, output_dir: str = None) -> str:
         output_dir = os.path.join(os.path.dirname(__file__), "generated_commands")
     os.makedirs(output_dir, exist_ok=True)
 
-    # Generate code string
-    code_str = parse_intent(code_text)
+    # Generate code string from the LLM
+    code_str = parse_intent(cmd_text)
 
-    # Create a sanitized filename
-    key = code_text.strip().lower().replace(" ", "_")
+    # Create a sanitized filename (e.g. "circle" -> "circle.py")
+    key = cmd_text.strip().lower().replace(" ", "_")
     filename = f"{key}.py"
     file_path = os.path.join(output_dir, filename)
 
@@ -24,5 +24,5 @@ def generate_and_save_command(code_text: str, output_dir: str = None) -> str:
     with open(file_path, "w") as f:
         f.write(code_str)
 
-    print(f"Generated command saved to: {file_path}")
+    print(f"[handler] Generated command saved to: {file_path}")
     return file_path

@@ -19,9 +19,9 @@ def parse_intent(cmd: str) -> Dict[str, Any]:
     resp = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role":"system", "content":"You emit a single JSON intent."},
+            {"role":"system", "content":"You are a Python code generator for ROS2 movement commands."},
             {"role":"user",   "content": INTENT_PROMPT.format(cmd=cmd)}
         ]
     )
-    import json
-    return json.loads(resp.choices[0].message.content)
+    return resp.choices[0].message.content.strip()
+    
