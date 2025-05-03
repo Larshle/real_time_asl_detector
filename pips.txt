@@ -16,7 +16,6 @@ pip install inference-cli && inference server start
 
 pip install --upgrade "roboflow>=1.1.53" ultralytics
 
-API key = hjxM4MZ87ZD1asjO0FJy
 
 realense: 
 
@@ -37,3 +36,15 @@ Modellen vi bruker kommer fra:
                             month = { apr },
                             note = { visited on 2025-05-02 },
                             }
+
+
+def spell_check_word_with_gpt(spelled: str) -> str:
+    prompt = (
+        f"I captured these letters from ASL: {','.join(spelled)}. "
+        "Return the correctly spelled English word (in lowercase)."
+    )
+    resp = openai.ChatCompletion.create(
+        model="gpt-4o-mini",
+        messages=[{"role":"user","content":prompt}]
+    )
+    return resp.choices[0].message.content.strip()
