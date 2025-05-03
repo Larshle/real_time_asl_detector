@@ -20,7 +20,7 @@ if not API_KEY:
 # initialize model, camera, assembler, and annotators
 model      = get_model(model_id=MODEL_ID, api_key=API_KEY)
 cam        = Cam(index=0, width=640, height=640)
-assembler = SentenceAssembler(gap_frames=35, stable_frames=15) # gap threshold for word break
+assembler = SentenceAssembler(gap_frames=30, stable_frames=15) # gap threshold for word break
 box_annot  = sv.BoxAnnotator()
 lab_annot  = sv.LabelAnnotator()
 
