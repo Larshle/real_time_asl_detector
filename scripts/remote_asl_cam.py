@@ -1,5 +1,3 @@
-# scripts/remote_asl_cam.py
-
 import os
 import cv2
 from dotenv import load_dotenv
@@ -14,7 +12,7 @@ from asl_cam.letter_builder import SentenceAssembler
 load_dotenv()  # loads ROBO_KEY from .env
 
 API_KEY   = os.getenv("ROBO_KEY")
-MODEL_ID  = "american-sign-language-letters-gxpdm/4"  # your fork/version
+MODEL_ID  = "american-sign-language-letters-gxpdm/4"  
 
 if not API_KEY:
     raise RuntimeError("Missing ROBO_KEY in environment")
@@ -22,7 +20,7 @@ if not API_KEY:
 # initialize model, camera, assembler, and annotators
 model      = get_model(model_id=MODEL_ID, api_key=API_KEY)
 cam        = Cam(index=0, width=640, height=640)
-assembler = SentenceAssembler(gap_frames=20, stable_frames=4) # gap threshold for word break
+assembler = SentenceAssembler(gap_frames=35, stable_frames=15) # gap threshold for word break
 box_annot  = sv.BoxAnnotator()
 lab_annot  = sv.LabelAnnotator()
 

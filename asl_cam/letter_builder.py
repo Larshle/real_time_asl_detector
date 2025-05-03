@@ -1,4 +1,3 @@
-# asl_cam/letter_builder.py
 
 class SentenceAssembler:
     """

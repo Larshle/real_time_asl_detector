@@ -17,6 +17,7 @@ class Cam:
         ok, frame = self.cap.read()
         if not ok:
             raise RuntimeError("No frame.")
+        frame = cv2.flip(frame, 1)
         return frame
 
     def release(self):
