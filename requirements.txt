@@ -14,5 +14,3 @@ requests>=2.31                   # HTTP client for REST calls
 pyyaml>=6.0.1                    # read config/settings.yaml
 python-dotenv>=1.0.1             # load secrets from .env
 tqdm>=4.66.0                     # progress bars for future scripts
-
-  
