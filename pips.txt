@@ -1,0 +1,39 @@
+pip install ultralytics roboflow opencv-python
+
+pip install "inference==0.29.2"    
+
+pip install "supervision==0.17.0"   
+
+pip install inference supervision
+
+pip install requests
+
+pip install roboflow 
+
+pip install inference-sdk
+
+pip install inference-cli && inference server start
+
+pip install --upgrade "roboflow>=1.1.53" ultralytics
+
+API key = hjxM4MZ87ZD1asjO0FJy
+
+realense: 
+
+import pyrealsense2 as rs
+
+Modellen vi bruker kommer fra:
+
+@misc{
+                            american-sign-language-letters-gxpdm_dataset,
+                            title = { American sign language letters Dataset },
+                            type = { Open Source Dataset },
+                            author = { Sign Language },
+                            howpublished = { \url{ https://universe.roboflow.com/sign-language-oyykt/american-sign-language-letters-gxpdm } },
+                            url = { https://universe.roboflow.com/sign-language-oyykt/american-sign-language-letters-gxpdm },
+                            journal = { Roboflow Universe },
+                            publisher = { Roboflow },
+                            year = { 2024 },
+                            month = { apr },
+                            note = { visited on 2025-05-02 },
+                            }

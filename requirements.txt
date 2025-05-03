@@ -1,0 +1,17 @@
+# ---------------- Core computer‑vision stack ----------------
+numpy<2                          # keep NumPy 1.x – avoids ABI issues
+torch==2.2.1                     # CPU / Metal wheel, works with NumPy 1.x
+opencv-python==4.10.0.84         # AVFoundation on macOS, V4L2 on Linux
+ultralytics==8.2.16              # optional: run local .pt files
+
+# ---------------- Roboflow inference stack -----------------
+inference==0.29.2                # lightweight SDK with get_model()
+supervision==0.22.0              # satisfies inference 0.29.x (<=0.22.0)
+roboflow>=1.1.63                 # SDK for dataset ops (fork, train, download)
+
+# ---------------- Utilities --------------------------------
+requests>=2.31                   # HTTP client for REST calls
+pyyaml>=6.0.1                    # read config/settings.yaml
+python-dotenv>=1.0.1             # load secrets from .env
+tqdm>=4.66.0                     # progress bars for future scripts
+
