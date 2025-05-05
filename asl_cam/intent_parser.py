@@ -15,7 +15,7 @@ You choose how big the shape the turtlebot drives in, but keep them not to big s
 Instruction: "{cmd}"
 """
 
-def parse_intent(cmd: str) -> Dict[str, Any]:
+def code_generator(cmd: str) -> Dict[str, Any]:
     resp = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
@@ -24,4 +24,14 @@ def parse_intent(cmd: str) -> Dict[str, Any]:
         ]
     )
     return resp.choices[0].message.content.strip()
-    
+
+def spell_check_word_with_gpt(spelled: str) -> str:
+    prompt = (
+        f"I captured these letters: {','.join(spelled)}. "
+        "Return only the correctly spelled English word, nothing else."
+    )
+    resp = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role":"user","content":prompt}]
+    )
+    return resp.choices[0].message.content.strip()

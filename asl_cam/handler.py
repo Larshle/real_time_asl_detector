@@ -1,5 +1,5 @@
 import os
-from .intent_parser import parse_intent
+from . import intent_parser as IP
 
 def generate_and_save_command(cmd_text: str, output_dir: str = None) -> str:
     """
@@ -12,8 +12,9 @@ def generate_and_save_command(cmd_text: str, output_dir: str = None) -> str:
         output_dir = os.path.join(os.path.dirname(__file__), "generated_commands")
     os.makedirs(output_dir, exist_ok=True)
 
+    cmd_text_spell_checked = IP.spell_check_word_with_gpt(cmd_text)
     # Generate raw code string from the LLM
-    code_str = parse_intent(cmd_text)
+    code_str = IP.code_generator(cmd_text_spell_checked)
 
     # ── Cleanup: strip ``` fences and any 'python' spec ────────────────
     lines = code_str.splitlines()
@@ -29,7 +30,7 @@ def generate_and_save_command(cmd_text: str, output_dir: str = None) -> str:
     code_str = "\n".join(lines)
 
     # Create a sanitized filename (e.g. "circle" → "circle.py")
-    key      = cmd_text.strip().lower().replace(" ", "_")
+    key      = cmd_text_spell_checked.strip().replace(" ", "_")
     filename = f"{key}.py"
     file_path = os.path.join(output_dir, filename)
 
