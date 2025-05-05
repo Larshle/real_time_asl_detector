@@ -58,10 +58,11 @@ while True:
 
     # 5) Overlay sentence & current letter
     sentence = assembler.current_sentence()
-    cv2.putText(annotated, sentence,       (10, 30),
-                cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255,255,255), 2)
-    cv2.putText(annotated, f"Current: {display_letter}", (10, 70),
-                cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0,255,0),     2)
+    registred_letter = assembler.letter_history
+    cv2.putText(annotated, sentence,       (10, 50),
+                cv2.FONT_HERSHEY_SIMPLEX, 1.7, (255,255,255), 3)
+    cv2.putText(annotated, f"Registred letters: {registred_letter}", (10, 120),
+                cv2.FONT_HERSHEY_SIMPLEX, 2.0, (0,255,0),     3)
 
     # 6) Show frame
     cv2.imshow("ASL Detector", annotated)
