@@ -59,7 +59,7 @@ while True:
             except subprocess.CalledProcessError as e:
                 print(f"Error while running cast.py: {e}")
             assembler.reset()
-        elif new_word == "S":
+        elif new_word == "Hello": #working progress- not quite working yet
             try:
                 subprocess.run(["python3", "/Users/larsleopold/Documents/ASL_recognition_yolo/Real_time_asl_detector/bcast/stop_prosess.py"], check=True)
                 print("stop_prosess executed successfully.")
