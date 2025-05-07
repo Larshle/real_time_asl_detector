@@ -3,46 +3,69 @@
 import rospy
 from geometry_msgs.msg import Twist
 
-def colline():
-    rospy.init_node('colline_movement', anonymous=True)
+def drive_in_B():
+    rospy.init_node('drive_in_B', anonymous=True)
     pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
-    rate = rospy.Rate(10)  # 10hz
+    rate = rospy.Rate(10)
 
     move_cmd = Twist()
-    
-    # Move forward for a small distance
-    move_cmd.linear.x = 0.2  # Move forward at 0.2 m/s
-    move_cmd.angular.z = 0.0  # No rotation
-    duration = 2  # Move forward for 2 seconds
-    start_time = rospy.Time.now()
 
-    while rospy.Time.now() - start_time < rospy.Duration(duration):
+    # Segment 1: Move vertically up
+    move_cmd.linear.x = 0.2
+    move_cmd.angular.z = 0.0
+    t0 = rospy.Time.now().to_sec()
+    distance_covered = 0
+    while distance_covered < 2.0:
         pub.publish(move_cmd)
+        t1 = rospy.Time.now().to_sec()
+        distance_covered = 0.2 * (t1 - t0)
         rate.sleep()
 
-    # Turn to create a line
+    # Segment 2: Half circle top
+    move_cmd.linear.x = 0.1
+    move_cmd.angular.z = 0.5
+    t0 = rospy.Time.now().to_sec()
+    angle_covered = 0
+    while angle_covered < 3.14:
+        pub.publish(move_cmd)
+        t1 = rospy.Time.now().to_sec()
+        angle_covered = 0.5 * (t1 - t0)
+        rate.sleep()
+
+    # Segment 3: Move vertically middle down
     move_cmd.linear.x = 0.0
     move_cmd.angular.z = 0.0
     pub.publish(move_cmd)
-    rospy.sleep(0.5)  # Pause briefly
+    rospy.sleep(1)
 
-    # Move sideways to complete the line
-    move_cmd.linear.x = 0.2  # Move forward at 0.2 m/s
+    move_cmd.linear.x = 0.2
     move_cmd.angular.z = 0.0
-    duration = 2  # Move sideways for 2 seconds
-    start_time = rospy.Time.now()
-
-    while rospy.Time.now() - start_time < rospy.Duration(duration):
+    t0 = rospy.Time.now().to_sec()
+    distance_covered = 0
+    while distance_covered < 1.0:
         pub.publish(move_cmd)
+        t1 = rospy.Time.now().to_sec()
+        distance_covered = 0.2 * (t1 - t0)
         rate.sleep()
 
-    # Stop the robot after completing the command
+    # Segment 4: Half circle bottom
+    move_cmd.linear.x = 0.1
+    move_cmd.angular.z = 0.5
+    t0 = rospy.Time.now().to_sec()
+    angle_covered = 0
+    while angle_covered < 3.14:
+        pub.publish(move_cmd)
+        t1 = rospy.Time.now().to_sec()
+        angle_covered = 0.5 * (t1 - t0)
+        rate.sleep()
+
+    # Segment 5: Move vertically lower end
     move_cmd.linear.x = 0.0
     move_cmd.angular.z = 0.0
     pub.publish(move_cmd)
 
 if __name__ == '__main__':
     try:
-        colline()
+        drive_in_B()
     except rospy.ROSInterruptException:
         pass

@@ -5,6 +5,7 @@ import supervision as sv
 from string import ascii_uppercase
 import subprocess
 
+
 from asl_cam.camera import Cam
 from asl_cam.letter_builder import SentenceAssembler
 from asl_cam.handler import generate_and_save_command
@@ -58,8 +59,14 @@ while True:
             except subprocess.CalledProcessError as e:
                 print(f"Error while running cast.py: {e}")
             assembler.reset()
+        elif new_word == "S":
+            try:
+                subprocess.run(["python3", "/Users/larsleopold/Documents/ASL_recognition_yolo/Real_time_asl_detector/bcast/stop_prosess.py"], check=True)
+                print("stop_prosess executed successfully.")
+            except subprocess.CalledProcessError as e: 
+                print(f"Erik sin code suger: {e}")
+            assembler.reset()
         else:
-            # Intermediate word
             print("Completed word:", new_word)
 
     # 5) Overlay sentence & current letter
