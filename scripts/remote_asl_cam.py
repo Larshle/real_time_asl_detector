@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from inference import get_model
 import supervision as sv
 from string import ascii_uppercase
+import subprocess
 
 from asl_cam.camera import Cam
 from asl_cam.letter_builder import SentenceAssembler
@@ -51,6 +52,11 @@ while True:
             # Generate and save the code file
             file_path = generate_and_save_command(full_cmd)
             print("Generated code saved to:", file_path)
+            try:
+                subprocess.run(["python3", "/Users/larsleopold/Documents/ASL_recognition_yolo/Real_time_asl_detector/bcast/cast.py"], check=True)
+                print("cast.py executed successfully.")
+            except subprocess.CalledProcessError as e:
+                print(f"Error while running cast.py: {e}")
             assembler.reset()
         else:
             # Intermediate word

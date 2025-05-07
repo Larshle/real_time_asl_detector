@@ -13,3 +13,4 @@ ros_pipeline:
 
 run_hosted:
 	PYTHONPATH=$(PWD) dotenv run -- python -m scripts.remote_asl_cam
+	

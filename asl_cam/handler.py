@@ -30,7 +30,7 @@ def generate_and_save_command(cmd_text: str, output_dir: str = None) -> str:
     code_str = "\n".join(lines)
 
     # Create a sanitized filename (e.g. "circle" → "circle.py")
-    key      = cmd_text_spell_checked.strip().replace(" ", "_")
+    key      = "command"
     filename = f"{key}.py"
     file_path = os.path.join(output_dir, filename)
 
