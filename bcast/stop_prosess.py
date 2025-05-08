@@ -3,11 +3,13 @@ import subprocess
 import os
 import sys
 import signal
-
+from dotenv import load_dotenv
+load_dotenv()
 # —— CONFIGURATION (must match cast.py) —— 
-USER       = "ee106b-acg"
-HOST       = "128.32.40.228"
-KEY_PATH   = os.path.expanduser("~/.ssh/robot6969")
+USER = os.getenv("USER")
+HOST = os.getenv("HOST")
+KEY_PATH = os.path.expanduser(os.getenv("KEY_PATH"))
+
 REMOTE_PID = "/tmp/ros_command_pid"
 
 # 1) Read the remote PID

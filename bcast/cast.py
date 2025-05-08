@@ -1,16 +1,17 @@
 import subprocess
 import os
 from pathlib import Path
-
+from dotenv import load_dotenv
+load_dotenv()
 # —— CONFIGURATION —— 
 # Local generated command script:
 local_path = Path.home() / "Documents/ASL_recognition_yolo/Real_time_asl_detector" \
              / "asl_cam/generated_commands/command.py"
 
 # Remote SSH info:
-USER       = "ee106b-acg"
-HOST       = "128.32.40.228"
-KEY_PATH   = os.path.expanduser("~/.ssh/robot6969")
+USER = os.getenv("USER")
+HOST = os.getenv("HOST")
+KEY_PATH = os.path.expanduser(os.getenv("KEY_PATH"))
 
 # Remote workspace & script dir:
 REMOTE_WS  = "/home/cc/ee106b/sp25/class/ee106b-acg/Desktop/typeshit"
