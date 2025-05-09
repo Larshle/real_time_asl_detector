@@ -1,17 +1,16 @@
 import subprocess
 import os
 from pathlib import Path
-from dotenv import load_dotenv
-load_dotenv()
+
 # —— CONFIGURATION —— 
 # Local generated command script:
 local_path = Path.home() / "Documents/ASL_recognition_yolo/Real_time_asl_detector" \
              / "asl_cam/generated_commands/command.py"
 
 # Remote SSH info:
-USER = os.getenv("USER")
-HOST = os.getenv("HOST")
-KEY_PATH = os.path.expanduser(os.getenv("KEY_PATH"))
+USER       = "ee106b-acg"
+HOST       = "128.32.40.228"
+KEY_PATH   = os.path.expanduser("~/.ssh/robot6969")
 
 # Remote workspace & script dir:
 REMOTE_WS  = "/home/cc/ee106b/sp25/class/ee106b-acg/Desktop/typeshit"
@@ -27,12 +26,12 @@ REMOTE_PID = "/tmp/ros_command_pid"
 # 4) run under nohup & background it
 # 5) echo its PID into REMOTE_PID
 remote_cmd = (
-    f"cd {REMOTE_WS} && "
+    "cd /home/cc/ee106b/sp25/class/ee106b-acg/Desktop/typeshit && "
     "source devel/setup.bash && "
-    f"cd {REMOTE_SCR} && "
-    "nohup rosrun asl-pkg command.py > /dev/null 2>&1 & "
-    # note the backslash before the $:
-    f"echo \\$! > {REMOTE_PID}"
+    "rosrun asl-pkg command.py"
+)
+remote_cmd1 = (
+    "cd /home/cc/ee106b/sp25/class/ee106b-acg/Desktop/typeshit && source devel/setup.bash && rosrun goto-pkg goto_point.py _goal_x:=4 _goal_y:=2 _goal_yaw:=0"
 )
 
 # ── 1) UPLOAD THE SCRIPT ───────────────────────────────────────────────────
