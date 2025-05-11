@@ -40,3 +40,5 @@ def generate_and_save_command(cmd_text: str, output_dir: str = None) -> str:
 
     print(f"[handler] Generated command saved to: {file_path}")
     return file_path
+
+

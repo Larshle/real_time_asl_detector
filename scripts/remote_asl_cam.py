@@ -27,6 +27,10 @@ lab_annot = sv.LabelAnnotator()
 
 print("Running remote ASL detector – press ESC to quit")
 
+SAVE_PROMPT  = False          # waiting for Y/N ?
+PENDING_CMD  = None           # cmd string
+PENDING_PATH = None    
+
 while True:
     frame = cam.read()
 
@@ -59,7 +63,7 @@ while True:
             except subprocess.CalledProcessError as e:
                 print(f"Error while running cast.py: {e}")
             assembler.reset()
-        elif new_word == "Hello": #working progress- not quite working yet
+        elif new_word == "Hello": #working progress not quite
             try:
                 subprocess.run(["python3", "/Users/larsleopold/Documents/ASL_recognition_yolo/Real_time_asl_detector/bcast/stop_prosess.py"], check=True)
                 print("stop_prosess executed successfully.")
