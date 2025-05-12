@@ -1,0 +1,101 @@
+phrase,trial,action,elapsed_s
+circle,0,generated,5.72
+circle,1,reused,0.64
+circle,2,reused,0.23
+circle,3,reused,0.15
+circle,4,reused,0.28
+circle,5,reused,0.14
+circle,6,reused,0.14
+circle,7,reused,0.67
+circle,8,reused,0.2
+circle,9,reused,0.29
+drive in a circle,0,generated,7.35
+drive in a circle,1,reused,0.15
+drive in a circle,2,reused,0.16
+drive in a circle,3,reused,0.25
+drive in a circle,4,reused,0.14
+drive in a circle,5,reused,0.19
+drive in a circle,6,reused,0.2
+drive in a circle,7,reused,0.21
+drive in a circle,8,reused,0.28
+drive in a circle,9,reused,0.38
+circle once,0,generated,6.15
+circle once,1,reused,2.11
+circle once,2,reused,0.29
+circle once,3,reused,0.16
+circle once,4,reused,0.6
+circle once,5,reused,0.25
+circle once,6,reused,0.38
+circle once,7,reused,0.17
+circle once,8,reused,0.19
+circle once,9,reused,0.41
+spin in place,0,generated,7.65
+spin in place,1,reused,0.15
+spin in place,2,reused,0.2
+spin in place,3,reused,0.17
+spin in place,4,reused,0.14
+spin in place,5,reused,0.16
+spin in place,6,reused,0.17
+spin in place,7,reused,0.23
+spin in place,8,reused,0.27
+spin in place,9,reused,0.21
+square,0,generated,6.68
+square,1,reused,0.17
+square,2,reused,0.37
+square,3,reused,0.17
+square,4,reused,0.23
+square,5,reused,0.29
+square,6,reused,0.34
+square,7,reused,0.22
+square,8,reused,0.24
+square,9,reused,0.45
+drive a square,0,generated,8.17
+drive a square,1,reused,0.15
+drive a square,2,reused,0.22
+drive a square,3,reused,0.66
+drive a square,4,reused,0.18
+drive a square,5,reused,0.23
+drive a square,6,reused,0.22
+drive a square,7,reused,0.18
+drive a square,8,reused,0.25
+drive a square,9,reused,0.18
+square drive,0,generated,4.93
+square drive,1,reused,0.21
+square drive,2,reused,0.19
+square drive,3,reused,0.24
+square drive,4,reused,0.17
+square drive,5,reused,0.24
+square drive,6,reused,0.15
+square drive,7,reused,0.15
+square drive,8,reused,0.23
+square drive,9,reused,0.18
+"drive straight, then take a right, then a left, then a circle",0,generated,4.91
+"drive straight, then take a right, then a left, then a circle",1,reused,0.27
+"drive straight, then take a right, then a left, then a circle",2,reused,0.65
+"drive straight, then take a right, then a left, then a circle",3,reused,0.17
+"drive straight, then take a right, then a left, then a circle",4,reused,0.4
+"drive straight, then take a right, then a left, then a circle",5,reused,0.19
+"drive straight, then take a right, then a left, then a circle",6,reused,0.37
+"drive straight, then take a right, then a left, then a circle",7,reused,0.15
+"drive straight, then take a right, then a left, then a circle",8,reused,0.36
+"drive straight, then take a right, then a left, then a circle",9,reused,0.17
+left,0,generated,6.04
+left,1,reused,0.42
+left,2,reused,0.17
+left,3,reused,0.15
+left,4,reused,0.21
+left,5,reused,0.13
+left,6,reused,0.19
+left,7,reused,0.2
+left,8,reused,0.13
+left,9,reused,0.18
+line return,0,generated,9.57
+line return,1,reused,0.25
+line return,2,reused,0.15
+line return,3,reused,0.21
+line return,4,reused,0.37
+line return,5,reused,0.26
+line return,6,reused,0.23
+line return,7,reused,0.29
+line return,8,reused,0.43
+line return,9,reused,0.18
